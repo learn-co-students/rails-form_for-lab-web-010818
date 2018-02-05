@@ -38,3 +38,62 @@ Started GET "/" for ::1 at 2015-11-18 13:37:10 -0600
 Processing by Rails::WelcomeController#index as HTML
   Rendered /Users/admin/.rvm/gems/ruby-2.1.2/gems/railties-4.2.3/lib/rails/templates/rails/welcome/index.html.erb (0.0ms)
 Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateSchoolClasses (20180205185855)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "school_classes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "room_number" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20180205185855"]]
+  [1m[36m (2.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/students/new" for ::1 at 2018-02-05 14:30:05 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StudentsController#new as HTML
+  Rendered students/new.html.erb within layouts/application (6.0ms)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <% form_for(@school_class) do |f| %>
+    2:   <%= f.label :first_name %>
+    3:   <%= f.text_field :first_name %>
+    4:   <%= f.label :last_name %>
+  app/views/students/new.html.erb:1:in `_app_views_students_new_html_erb___1401436028809764302_70243830448680'
+
+
+  Rendered /Users/flatironschool/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.5ms)
+  Rendered /Users/flatironschool/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /Users/flatironschool/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (6.1ms)
+  Rendered /Users/flatironschool/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (124.1ms)
+
+
+Started GET "/students/new" for ::1 at 2018-02-05 14:30:45 -0500
+Processing by StudentsController#new as HTML
+  Rendered students/new.html.erb within layouts/application (61.4ms)
+Completed 200 OK in 690ms (Views: 689.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/school_classes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2018-02-05 14:30:46 -0500
+
+
+Started GET "/assets/students.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2018-02-05 14:30:46 -0500
+
+
+Started GET "/assets/school_classes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2018-02-05 14:30:46 -0500
+
+
+Started GET "/assets/students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2018-02-05 14:30:46 -0500
+
+
+Started GET "/students/new" for ::1 at 2018-02-05 14:32:40 -0500
+Processing by StudentsController#new as HTML
+  Rendered students/new.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 106ms (Views: 97.0ms | ActiveRecord: 0.5ms)
+  [1m[36mStudent Load (7.7ms)[0m  [1mSELECT "students".* FROM "students"[0m
+  [1m[35mSchoolClass Load (2.2ms)[0m  SELECT "school_classes".* FROM "school_classes"
+
+
+Started GET "/students/new" for ::1 at 2018-02-05 14:34:01 -0500
+Processing by StudentsController#new as HTML
+  Rendered students/new.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 74ms (Views: 72.6ms | ActiveRecord: 0.0ms)
